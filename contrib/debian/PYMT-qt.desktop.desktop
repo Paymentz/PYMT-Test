@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PYMT
+Comment=PYMT P2P Cryptocurrency
+Exec=PYMT-qt %u
+Terminal=false
+Type=Application
+Icon=PYMT128
+MimeType=x-scheme-handler/PYMT;
+Categories=Office;Finance;
+Name[en_US]=PYMT-qt.desktop

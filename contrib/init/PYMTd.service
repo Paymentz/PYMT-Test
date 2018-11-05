@@ -1,0 +1,26 @@
+[Unit]
+Description=PYMT's distributed currency daemon
+After=network.target
+
+[Service]
+User=PYMT
+Group=PYMT
+
+Type=forking
+PIDFile=/var/lib/PYMTd/PYMTd.pid
+
+ExecStart=/usr/bin/PYMTd -daemon -pid=/var/lib/PYMTd/PYMTd.pid \
+          -conf=/etc/PYMT/PYMT.conf -datadir=/var/lib/PYMTd
+
+ExecStop=-/usr/bin/PYMT-cli -conf=/etc/PYMT/PYMT.conf \
+         -datadir=/var/lib/PYMTd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
